@@ -58,7 +58,9 @@
     </target>
     
     <target name="deploy" depends="compile">
-        <echo> Called Deploy </echo>
+        <copy todir="${dist.dir}">
+            <fileset dir="${build.dir}"/>
+        </copy>
     </target>
     
     <target name="run" depends="compile">
