@@ -57,6 +57,10 @@
         </war>
     </target>
     
+    <target name="deploy" depends="compile">
+        <echo> Called Deploy </echo>
+    </target>
+    
     <target name="run" depends="compile">
         <java jar="${build.dir}/${ant.project.name}.jar" fork="true"/>
     </target>
