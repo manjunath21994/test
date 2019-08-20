@@ -56,7 +56,7 @@
         </war>
     </target>
     
-    <target name="deploy" depends="compile">
+    <target name="deploy">
         <exec executable="curl">
             <arg value ="--help"/>
         </exec>
