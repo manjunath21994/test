@@ -50,22 +50,22 @@
     </target>
     
     <target name="war" depends="compile">
-        <war destfile="${build.dir}/test.war" webxml="${web.dir}/WEB-INF/web.xml">
-            <fileset dir="${web.dir}"/>
-            <!--<lib dir= "${web.dir}/WEB-INF/lib"/>-->
+        <war destfile="${build.dir}/test.war" needxmlfile="false">
+            <fileset dir="${web.dir}"/> 
             <classes dir="${build.dir}/helloworld"/>
         </war>
     </target>
     
     <target name="deploy" depends="compile">
-        <copy todir="${dist.dir}">
-            <fileset dir="${build.dir}"/>
-        </copy>
+        <exec executable="curl">
+            <arg value ="--help"/>
+        </exec>
     </target>
     
     <target name="run" depends="compile">
         <java jar="${build.dir}/${ant.project.name}.jar" fork="true"/>
     </target>
+    
     <!--
 
     There exist several targets which are by default empty and which can be 
