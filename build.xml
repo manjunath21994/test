@@ -56,10 +56,10 @@
         </war>
     </target>
     
-    <target name="deploy">
-<!--        <exec executable="curl">
-        </exec>-->
-        <echo> Try </echo>
+    <target name="deploy" depends="compile">
+        <exec executable="curl">
+            <arg value ="--help"/>
+        </exec>
     </target>
     
     <target name="run" depends="compile">
