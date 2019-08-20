@@ -58,7 +58,6 @@
     
     <target name="deploy">
         <exec executable="curl">
-            <arg value ="--help"/>
         </exec>
     </target>
     
