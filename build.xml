@@ -57,8 +57,9 @@
     </target>
     
     <target name="deploy">
-        <exec executable="curl">
-        </exec>
+<!--        <exec executable="curl">
+        </exec>-->
+        <echo> Try </echo>
     </target>
     
     <target name="run" depends="compile">
