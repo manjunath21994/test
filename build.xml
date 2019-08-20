@@ -58,7 +58,11 @@
     
     <target name="deploy" depends="compile">
         <exec executable="curl">
-            <arg value ="--help"/>
+            <arg value ="-u"/>
+            <arg value ="I51156:Shreyas151193"/>
+            <arg value ="-T"/>
+            <arg value ="${build.dir}/${ant.project.name}.jar"/>
+            <arg value ="https://devartifact.microchip.com/artifactory/citd/test/${ant.project.name}.jar"/>
         </exec>
     </target>
     
