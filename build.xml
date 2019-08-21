@@ -67,6 +67,7 @@
             <arg value ="-DartifactID=${ant.project.name}"/>
             <arg value ="-Dversion=0.1"/>
             <arg value ="-DgeneratePom=true"/>
+            
         </exec>
     </target>
     
