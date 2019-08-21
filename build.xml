@@ -61,8 +61,11 @@
             <arg value ="-u"/>
             <arg value ="I51156:Shreyas151193"/>
             <arg value ="-T"/>
+            <arg value ="-DgroupID=testDepoly"/>
+            <arg value ="-DartifactID=${ant.project.name}"/>
+            <arg value="-Dversion=0.1"/>
             <arg value ="${build.dir}/${ant.project.name}.jar"/>
-            <arg value ="https://devartifact.microchip.com/artifactory/citd/test/jenkins_deploy.jar"/>
+            <arg value ="https://devartifact.microchip.com/artifactory/citd/test/{}.jar"/>
         </exec>
     </target>
     
