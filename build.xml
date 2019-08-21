@@ -62,7 +62,7 @@
             <arg value ="I51156:Shreyas151193"/>
             <arg value ="-T"/>
             <arg value ="${build.dir}/${ant.project.name}.jar"/>
-            <arg value ="https://devartifact.microchip.com/artifactory/citd/test/${ant.project.name}.jar"/>
+            <arg value ="https://devartifact.microchip.com/artifactory/citd/test/${ant.project.name}_0.1.jar"/>
             <arg value ="-DgroupID=testDepoly"/>
             <arg value ="-DartifactID=${ant.project.name}"/>
             <arg value ="-Dversion=0.1"/>
