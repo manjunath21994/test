@@ -1,12 +1,5 @@
 pipeline {
-	agent {
-		kubernetes {
-			label 'operation'
-			defaultContainer 'citd-node-ant-jdk'
-            yamlFile 'cloudprovider.yml'
-        }
-    }
-	
+
     environment {
         GIT_COMMIT_EMAIL = sh (script: 'git show -s --pretty=%ae',returnStdout: true).trim()
     }
