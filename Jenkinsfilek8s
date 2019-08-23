@@ -19,20 +19,6 @@ pipeline {
             }
         }
     }
-
-    post {
-		success{
-            mail to: "${env.GIT_COMMIT_EMAIL}, jayachandran.dharuman@microchip.com, Harish.Agari@microchip.com",
-                subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
-                body: "Something is right with ${env.BUILD_URL}"
-
-        }
-        failure {
-            mail    to: "${env.GIT_COMMIT_EMAIL}, jayachandran.dharuman@microchip.com, Harish.Agari@microchip.com",
-                    subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                    body: "Pipeline failure. ${env.BUILD_URL}"
-        }
-    }
 }
 
 def execAnt(String arguments) {
