@@ -66,7 +66,7 @@
     <target name="deploy" description="Deploy build artifacts to artifact repository">
         <exec dir="." executable="cmd">
             <!--<arg line="/c mvn deploy:deploy-file">-->
-            <arg value="/c mvn deploy:deploy-file -Durl=https://devartifact.microchip.com/artifactory/citd/test -DgroupId=com.microchip.mcc.citd -DartifactId=${ant.project.name} -Dversion=${version} -Dpackaging=jar -Dfile=${build.dir}/${ant.project.name}-${version}.jar -DgeneratePom=true" />
+            <arg value="/c mvn deploy:deploy-file -Durl=https://devartifact.microchip.com/artifactory/citd-maven/test -DgroupId=com.microchip.mcc.citd -DartifactId=${ant.project.name} -Dversion=${version} -Dpackaging=jar -Dfile=${build.dir}/${ant.project.name}-${version}.jar -DgeneratePom=true" />
 <!--            <arg value="-Durl=https://devartifact.microchip.com/artifactory/citd/test" />
             <arg value="-DgroupId=com.microchip.mcc.citd" />
             <arg value="-DartifactId=${ant.project.name}" />
