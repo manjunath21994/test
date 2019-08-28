@@ -10,9 +10,10 @@
 <project name="HelloWorld" default="run" basedir=".">
     <description>Builds, tests, and runs the project HelloWorld.</description>
     <!--<import file="nbproject/build-impl.xml"/>-->
-    
+    <property name ="version" value="0.1"/>
     <property file="nbproject/project.properties"/>
     <property name = "src.dir" value = "src"/>
+    <property name="mcc_version" value ="1.0.1"/>
     
     <path id="classpath">
         <fileset dir="${web.dir}/WEB-INF/lib">
@@ -35,7 +36,7 @@
     </target>
     
     <target name = "jar" depends="compile">
-        <jar destfile = "${build.dir}/${ant.project.name}.jar"
+        <jar destfile = "${build.dir}/${ant.project.name}-${version}.jar"
              basedir = "${build.dir}">
       
             <manifest>
@@ -56,18 +57,22 @@
         </war>
     </target>
     
-    <target name="deploy" depends="compile">
-        <exec executable="curl">
-            <arg value ="-u"/>
-            <arg value ="I51156:Shreyas151193"/>
-            <arg value ="-T"/>
-            <arg value ="${build.dir}/${ant.project.name}.jar"/>
-            <arg value ="https://devartifact.microchip.com/artifactory/citd/test/${ant.project.name}_0.1.jar"/>
-            <arg value ="-DgroupID=testDepoly"/>
-            <arg value ="-DartifactID=${ant.project.name}"/>
-            <arg value ="-Dversion=0.1"/>
-            <arg value ="-DgeneratePom=true"/>
-            
+    <target name="test">
+        <exec dir="." executable="cmd">
+            <arg line ="/c mvn -version"/>
+        </exec>
+    </target>
+    
+    <target name="deploy" depends="jar" description="Deploy build artifacts to artifact repository">
+        <exec executable="mvn">
+            <arg value="deploy:deploy-file" />
+            <arg value="-Durl=https://devartifact.microchip.com/artifactory/citd/test" />
+            <arg value="-DgroupId=com.microchip.mcc.citd" />
+            <arg value="-DartifactId=${ant.project.name}" />
+            <arg value="-Dversion=${version}" />
+            <arg value="-Dpackaging=jar" />
+            <arg value="-Dfile=${build.dir}/${ant.project.name}-${version}.jar" />
+            <arg value="-DgeneratePom=true" />
         </exec>
     </target>
     
