@@ -7,7 +7,7 @@ pipeline {
     
     parameters {
         booleanParam( name: 'SHOULD_DEPLOY_ON_DEVELOP',
-                defaultValue: false,
+                defaultValue: true,
                 description: "If true and the build occurs on the develop branch, a deploy will occur.")
     }
     stages {
