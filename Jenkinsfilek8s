@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy'){
              steps{
                 script{
-                    echo scm.branches[0].name     
+                    echo env.BRANCH_NAME     
                     execAnt("deploy")
                     
                 }
