@@ -44,6 +44,10 @@ def execute(String command) {
     }
 }
 
+def isBranch(String branch) {
+    return env.BRANCH_NAME == "${branch}";
+}
+
 def shouldDeploy() {
     return isBranch('master') ||
            (isBranch('develop') && shouldDeployOnDevelop())
