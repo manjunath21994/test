@@ -35,6 +35,12 @@ pipeline {
             }
         }
     }
+    
+    post {
+        success{
+            archiveArtifacts artifacts : 'build/*.jar' , onlyIfSuccessful: true
+        }
+    }
 }
 
 def execAnt(String arguments) {
