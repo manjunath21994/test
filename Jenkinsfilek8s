@@ -4,7 +4,12 @@ pipeline {
         timestamps()
         timeout(time: 30, unit: 'MINUTES')
     }
-
+    
+    parameters {
+        booleanParam( name: 'SHOULD_DEPLOY_ON_DEVELOP',
+                defaultValue: false,
+                description: "If true and the build occurs on the develop branch, a deploy will occur.")
+    }
     stages {
 
         stage('Checkout') {
@@ -15,8 +20,14 @@ pipeline {
 
         stage('Build') {
             steps {
-				execAnt("compile")
+                execAnt("compile")
             }
+        }
+
+        stage('deploy'){
+             if(shouldDeploy()){
+                execAnt("deploy")
+             }
         }
     }
 }
@@ -32,5 +43,15 @@ def execute(String command) {
         bat command
     }
 }
+
+def shouldDeploy() {
+    return isBranch('master') ||
+           (isBranch('develop') && shouldDeployOnDevelop())
+}
+
+def shouldDeployOnDevelop() {
+    return "${params.SHOULD_DEPLOY_ON_DEVELOP}".toBoolean();
+}
+
 
 
