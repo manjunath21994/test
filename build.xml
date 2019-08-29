@@ -10,7 +10,7 @@
 <project name="HelloWorld" default="run" basedir=".">
     <description>Builds, tests, and runs the project HelloWorld.</description>
     <!--<import file="nbproject/build-impl.xml"/>-->
-    <property name ="version" value="0.1"/>
+    <property name ="version" value="0.2"/>
     <property file="nbproject/project.properties"/>
     <property name = "src.dir" value = "src"/>
     <property name="mcc_version" value ="1.0.1"/>
