@@ -27,9 +27,8 @@ pipeline {
         stage('Deploy'){
              steps{
                 script{
-                    if(shouldDeploy()){
                     execAnt("deploy")
-                    }
+                    
                 }
             }
         }
