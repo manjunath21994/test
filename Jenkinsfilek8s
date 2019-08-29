@@ -28,6 +28,7 @@ pipeline {
             steps{
                     script{
                         if(shouldDeploy()){
+                            execAnt("deploy")
                         }
                     }
                 
@@ -37,7 +38,7 @@ pipeline {
     
     post {
         success{
-            archiveArtifacts artifacts : 'build/*.jar' , onlyIfSuccessful: true
+            archiveArtifacts artifacts : '**/*.jar' , onlyIfSuccessful: true
         }
     }
 }
