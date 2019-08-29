@@ -7,7 +7,7 @@ pipeline {
     
     parameters {
         booleanParam( name: 'SHOULD_DEPLOY_ON_DEVELOP',
-                defaultValue: true,
+                defaultValue: false,
                 description: "If true and the build occurs on the develop branch, a deploy will occur.")
     }
     stages {
@@ -27,9 +27,9 @@ pipeline {
         stage('Deploy'){
              steps{
                 script{
-                    echo env.BRANCH_NAME     
+                    if(shouldDeploy()){
                     execAnt("deploy")
-                    
+                    }
                 }
             }
         }
