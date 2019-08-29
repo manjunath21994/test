@@ -37,7 +37,7 @@ pipeline {
     
     post {
         success{
-            archiveArtifacts artifacts : '**/*.jar' , onlyIfSuccessful: true
+            archiveArtifacts artifacts : 'build/*.jar' , onlyIfSuccessful: true
         }
     }
 }
