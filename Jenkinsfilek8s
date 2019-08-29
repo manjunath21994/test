@@ -26,13 +26,12 @@ pipeline {
 
         stage('Deploy'){
             steps{
-                dir("${params.WORKING_DIRECTORY}") {
                     script{
                         if(shouldDeploy()){
                             execAnt("deploy")
                         }
                     }
-                }
+                
             }
         }
     }
